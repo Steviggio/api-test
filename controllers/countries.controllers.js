@@ -29,7 +29,7 @@ exports.delete = async (req, res) => {
 }
 
 exports.modify = async (req, res) => {
-  await countries.updateOne({ _id: req.params.id }, ...req.body)
+  await countries.updateOne({ _id: req.params.id }, {...req.body, _id: req.params.id})
     .then(() => res.status(200).json({ message: "The country has been successfully updated !" }))
     .catch((error) => res.status(400).json({ error }))
 }
