@@ -5,7 +5,9 @@ const CountriesSchema = mongoose.Schema({
   capital: { type: String, required: true },
   citiesNumber: { type: Number, required: true },
   flagUrl: { type: String },
-  officialLanguage: { type: String, required: true }
+  officialLanguage: [{
+    name: { type: String, required: true },
+  }]
 }, { versionKey: false });
 
 module.exports = mongoose.model("Country", CountriesSchema);

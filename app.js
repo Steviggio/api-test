@@ -3,6 +3,7 @@ require("dotenv").config();
 const app = express();
 const countriesRoutes = require("./routes/countries.routes");
 const usersRoutes = require("./routes/users.routes");
+const languagesRoutes = require('./routes/languages.routes');
 
 // Connecting the app to the DB
 
@@ -26,8 +27,9 @@ app.use((req, res, next) => {
   next();
 })
 
-app.use("/", countriesRoutes);
+app.use("/country", countriesRoutes);
 app.use('/', usersRoutes);
+app.use("/language", languagesRoutes)
 
 
 
